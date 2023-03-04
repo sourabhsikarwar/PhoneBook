@@ -1,15 +1,18 @@
-import Login from "./pages/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import AuthLayout from "./layouts/AuthLayout";
 
 function App() {
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="text-xl text-red-500 font-bold">
-          Hello, This is a Contact List App
-        </h1>
-        <Login />
+    <Router>
+      <div className="bg-gray-200">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/login" element={<AuthLayout />} />
+          <Route path="/register" element={<AuthLayout />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
